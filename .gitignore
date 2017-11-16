@@ -3,6 +3,7 @@ clean-data/
 raw-data/
 SIGMA*
 eeglab14_1_1b/
+*.m~
 
 # Compiled source #
 ###################
