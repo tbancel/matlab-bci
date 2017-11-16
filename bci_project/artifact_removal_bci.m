@@ -23,7 +23,7 @@ f2=45; %cuttoff frequency to discard high frequency noise
 for i=1:files_count
     filename=filenames{i};
     
-    load(strcat('data-project/',filename));
+    load(strcat('raw-data/',filename));
 
     data = s_EEG.data;
     fs = s_EEG.sampling_rate;
@@ -79,7 +79,7 @@ for i=1:files_count
     s_EEG.labels = s_EEG.labels(clean_epoch_index);
     s_EEG.data = norm_data_wo_artefact;
     
-    clean_data_filename = strcat(clean_data_folder_pathname,filename,'_clean_epochs_normalized_and_filtered.mat');
+    clean_data_filename = strcat(clean_data_folder_pathname,'subject_', int2str(i),'.mat');
     
     save(clean_data_filename, 's_EEG');
     display(filename+" treated and saved");

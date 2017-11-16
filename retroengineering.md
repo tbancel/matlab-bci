@@ -26,4 +26,14 @@ Les données du TP Tinder sont formatées exactement de la même manière - malh
 Sigma_main > sigma_feature_extraction.m
 
 
+2. Compute feature ranking
+
+
+3. Compute classification
+
+SIGMA > SIGMA_gui > gui_function > compute_classification
+
+sigma_cross_validation_
+
+
 
