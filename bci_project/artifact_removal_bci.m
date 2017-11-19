@@ -1,3 +1,10 @@
+% filters the data between 0.5Hz and 45Hz
+% centers and reduces the normalized data
+% removes epochs where at least one channels varies too much
+% (max-min is larger than 7 times the standard deviation)
+
+% saves the clean data in a new folder
+
 delete(findall(0, 'Type', 'figure'));
 clear;
 close;
@@ -20,7 +27,7 @@ f2=45; %cuttoff frequency to discard high frequency noise
 
  
 % loop on all subjects
-for i=1:files_count
+for i=2:files_count
     filename=filenames{i};
     
     load(strcat('raw-data/',filename));
@@ -59,9 +66,10 @@ for i=1:files_count
     delta = max_norm_data-min_norm_data;
     
     % the max among all channels for each epochs
-    epoch_max_delta_norm = max(delta,[],1);
+    [epoch_max_delta_norm, index_of_max_value] = max(delta,[],1);
     
     epoch_wo_artifact = epoch_max_delta_norm < artefact_variance_threshold;
+    epoch_w_artifact = epoch_max_delta_norm > artefact_variance_threshold;
     
     number_of_epochs_wo_artifact = sum(epoch_wo_artifact);
     

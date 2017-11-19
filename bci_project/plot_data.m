@@ -1,3 +1,5 @@
+% plot 10 first epochs only first channel
+
 delete(findall(0, 'Type', 'figure'));
 clear;
 close;
