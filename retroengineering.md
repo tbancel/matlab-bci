@@ -45,6 +45,7 @@ We see that the script loops first on the channel, and then on the band.
 Therefore, the time_sample_entropy array first 3 elements are the time_sample_entropy calculated for each band on the FIRST channel.
 
 
+The next step is to understand feature_assembling
 
 
 
