@@ -9,7 +9,7 @@ filenames={'subject_1.mat', 'subject_2.mat', 'subject_3.mat', 'subject_4.mat', '
 files_count = length(filenames);
 folder_path = '/Users/tbancel/Desktop/MS_BME/UE 3.6-7 BCI/matlab-signal-processing/clean-data/';
 
-for i=2:2
+for i=1:files_count
     load(strcat(folder_path,filenames{i}));
     labels = s_EEG.labels;
     data = s_EEG.data;
@@ -37,7 +37,13 @@ for i=2:2
     
     clean_data_filename = strcat(folder_path,'subject_', int2str(i),'.mat');
     
-    save(clean_data_filename, 's_EEG');
+    % save(clean_data_filename, 's_EEG');
+    
+    str1= "Subject : " + i + "/ Number of epochs : " + epochs_number;
+    str2= "Number of likes : "+ number_of_likes +" / Number of dislikes :"+ number_of_dislikes;
+    display(str1);
+    display(str2);
+    
     display(clean_data_filename+" treated and saved");
     display("============");
 end
