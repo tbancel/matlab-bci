@@ -8,17 +8,19 @@ close all
 tic
 %% data loading
 % data loading
-load 'D:\MJ\ѧϰ\curriculum\UE3.7-8 BCI\BCI_project\SIGMA_svm\SIGMA_svm\SIGMA\SIGMA_data\subject_1.mat';
+load 'C:\Users\MJ\Desktop\subject_1.mat';
 eeg1 = s_EEG;
-load 'D:\MJ\ѧϰ\curriculum\UE3.7-8 BCI\BCI_project\SIGMA_svm\SIGMA_svm\SIGMA\SIGMA_data\subject_for_test\subject_2.mat';
-eeg2 = s_EEG;
+% load 'D:\MJ\ѧϰ\curriculum\UE3.7-8 BCI\BCI_project\SIGMA_svm\SIGMA_svm\SIGMA\SIGMA_data\subject_for_test\subject_2.mat';
+% eeg2 = s_EEG;
 % data parameter
 fs = s_EEG.sampling_rate;% sample rate
 
 %% label collection
 % converge the eeg data
-eeg_labels = cat(2,eeg1.labels,eeg2.labels);
-eeg_data = cat(3,eeg1.data,eeg2.data);
+% eeg_labels = cat(2,eeg1.labels,eeg2.labels);
+% eeg_data = cat(3,eeg1.data,eeg2.data);
+eeg_labels = eeg1.labels;
+eeg_data=eeg1.data;
 
 % find like=1, dislike=-1
 likes_index_labels = find(eeg_labels == 1);
@@ -29,24 +31,35 @@ number_of_dislikes = length(dislikes_index_labels);
 % converge the data
 eeg_like = eeg_data(:,:,likes_index_labels);
 eeg_dislike = eeg_data(:,:,dislikes_index_labels);
-eeg_data_new = cat(3,eeg_like,eeg_dislike);
+eeg_data_conv = cat(3,eeg_like,eeg_dislike);
 
 %% freqband analysis
 % fast Fourier transform
-epoch_nfft = size(eeg_data_new,2);
-F = ((0:1/epoch_nfft:1-1/epoch_nfft)*fs);
+epoch_nfft = size(eeg_data_conv,2);
+F = ((0:1/epoch_nfft:1/2-1/epoch_nfft)*fs);%1/epoch_nfft is the frequency resolution
 Freq = [1,4,8,12,25];
 n_Freq = (Freq/fs+1/fs)*epoch_nfft;
-for i = 1:size(eeg_data_new,3)
+for i = 1:size(eeg_data_conv,3)
     for j = 1:19
+%         wo = 50/(500/2);  
+%         bw = wo/45;
+%         [b,a] = iirnotch(wo,bw);
+%         eeg_data_notch(j,:,i) =filtfilt(b,a,eeg_data(j,:,i));
+%         freq_fft(j,:,i) = abs(fft(eeg_data_notch(j,:,i),epoch_nfft)); 
         freq_fft(j,:,i) = abs(fft(eeg_data(j,:,i),epoch_nfft)); 
-        % Total Magnitude
-        Mag_total=sum(freq_fft(j,:,i))/epoch_nfft;
+%         figure
+%         plot(F,freq_fft(j,1:500,i))
+%         title(['Single-Sided Amplitude Spectrum by FFT, Channel-',num2str(j),'  Epoch-',num2str(i)])
+%         xlabel('Frequency(Hz)');
+%         ylabel('Magnitude');
+
+        %Total Magnitude
+        Mag_total(j,i)=sum(freq_fft(j,:,i))/epoch_nfft/2;
         % Reletive power 
-        d(j,i) = sum(freq_fft(j,n_Freq(1):n_Freq(2),i))/length([n_Freq(1):n_Freq(2)])/Mag_total;
-        t(j,i) = sum(freq_fft(j,n_Freq(2):n_Freq(3),i))/length([n_Freq(2):n_Freq(3)])/Mag_total;
-        a(j,i) = sum(freq_fft(j,n_Freq(3):n_Freq(4),i))/length([n_Freq(3):n_Freq(4)])/Mag_total;
-        b(j,i) = sum(freq_fft(j,n_Freq(4):n_Freq(5),i))/length([n_Freq(4):n_Freq(5)])/Mag_total;
+        d(j,i) = sum(freq_fft(j,n_Freq(1):n_Freq(2),i))/length([n_Freq(1):n_Freq(2)])/epoch_nfft/Mag_total(j,i);
+        t(j,i) = sum(freq_fft(j,n_Freq(2):n_Freq(3),i))/length([n_Freq(2):n_Freq(3)])/epoch_nfft/Mag_total(j,i);
+        a(j,i) = sum(freq_fft(j,n_Freq(3):n_Freq(4),i))/length([n_Freq(3):n_Freq(4)])/epoch_nfft/Mag_total(j,i);
+        b(j,i) = sum(freq_fft(j,n_Freq(4):n_Freq(5),i))/length([n_Freq(4):n_Freq(5)])/epoch_nfft/Mag_total(j,i);
         
     end
 end
@@ -96,7 +109,7 @@ for j=1:19
    hold on 
    % Boxplot for the dislike
    Freqname_dislike = {'d-','t-','a-','b-'};
-   position_0 = 1.2:1:4.2;  % Define position for 12 Month_S boxplots
+   position_0 = 1.2:1:4.2;  % Define position for 4 freqency boxplots
    box_S = boxplot(squeeze(freqband_fft_dislike(j,:,:)),'colors','r','positions',position_0,'width',0.18)
    title(['channel-',num2str(j)])
 end
