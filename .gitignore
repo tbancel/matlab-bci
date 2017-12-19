@@ -1,6 +1,7 @@
 articles/
 clean-data/
 raw-data/
+data/
 SIGMA*
 eeglab14_1_1b/
 *.m~
