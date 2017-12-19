@@ -28,10 +28,10 @@ dislike_labels = large_labels(find(large_labels == -1));
 % create 7 subjects
 
 for i=1:7 
-  range = (1+(i-1)*37):(i*37)
+  range = (1+(i-1)*37):(i*37);
   
-  s_EEG.data = cat(3, like_epochs(:,:,range), dislike_epochs(:,:,range))
-  s_EEG.labels = cat(2,like_labels(range), dislike_labels(range))
+  s_EEG.data = cat(3, like_epochs(:,:,range), dislike_epochs(:,:,range));
+  s_EEG.labels = cat(2,like_labels(range), dislike_labels(range));
   s_EEG.subject_number = i;
   s_EEG.channel_names = channel_names;
   s_EEG.sampling_rate = sampling_rate;
