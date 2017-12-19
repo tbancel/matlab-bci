@@ -10,3 +10,4 @@ real_labels = s_EEG.labels;
 
 display(predicted_labels);
 display(real_labels);
+display(time);
