@@ -1,0 +1,48 @@
+=======================    Matrix feature assembly     =======================
+=======================   Informations    ==================
+The features matrix has the right dimension
+The dimension of the feature matrix is: 114  588
+The list of subject is: 4
+The number of subject is: 1
+The number of epochs of each subject is: 0    0    0  588
+The total number of epochs is: 588
+The list of the used method(s) is: 17
+The total number of method(s) is: 1
+The filters vector is: 1
+The filters are applied for the methods: 17
+The total number of applied filter is: 1
+The selected band(s):
+      Delta     : [0.1 4] Hz
+      Theta     : [4 8] Hz
+      Mu        : [8 12] Hz
+      Alpha     : [12 16] Hz
+      Beta      : [16 32] Hz
+      All bands : [0.1 90] Hz
+ 
+The total number of bands is: 6
+The total number of channels is: 19
+The total number of features is: 114
+The used methods for features are: 
+          time_zero_crossing
+          
+=======================   End of Matrix feature assembly    ==================
+           o_time_zero_crossing: [114×588 double]
+      o_time_zero_crossing_band: [114×3 double]
+                  origin_labels: [1×588 double]
+                         labels: [1×588 double]
+                         epochs: 588
+                      nb_epochs: [0 0 0 588]
+                  sampling_rate: 500
+                    nb_channels: [0 0 0 19]
+                  subject_epoch: [588×2 double]
+                    used_method: {'time_zero_crossing'}
+              method_band_infos: {'N° Method'  'N° Channel'  'N° band'}
+     remove_individual_features: 'N'
+                 channel_method: [114×2 double]
+              o_features_matrix: [114×588 double]
+           o_features_matrix_id: [114×3 double]
+     o_features_matrix_id_infos: {' N° Method  N°Channel   N°Band '}
+     o_features_matrix_original: [114×588 double]
+    o_features_matrix_normalize: [114×588 double]
+                    nb_features: 114
+                       nb_epoch: 588

@@ -1,0 +1,68 @@
+Feat 114 is ranked 1 score: 0.14089; Meth N°:17 (time_zero_crossing); Ch N°: 19 (F7); band N°: 8(All frquency domaine...)
+Feat 29 is ranked 2 score: 0.14757; Meth N°:17 (time_zero_crossing); Ch N°: 5 (P3); band N°: 5(Beta      : [16 32] Hz)
+Feat 97 is ranked 3 score: 0.11635; Meth N°:17 (time_zero_crossing); Ch N°: 17 (Fp1); band N°: 1(Delta     : [0.1 4] Hz)
+Feat 111 is ranked 4 score: 0.112; Meth N°:17 (time_zero_crossing); Ch N°: 19 (F7); band N°: 3(Mu        : [8 12] Hz)
+Feat 100 is ranked 5 score: 0.080455; Meth N°:17 (time_zero_crossing); Ch N°: 17 (Fp1); band N°: 4(Alpha     : [12 16] Hz)
+Feat 104 is ranked 6 score: 0.071559; Meth N°:17 (time_zero_crossing); Ch N°: 18 (T7); band N°: 2(Theta     : [4 8] Hz)
+Feat 92 is ranked 7 score: 0.071686; Meth N°:17 (time_zero_crossing); Ch N°: 16 (F3); band N°: 2(Theta     : [4 8] Hz)
+Feat 88 is ranked 8 score: 0.074449; Meth N°:17 (time_zero_crossing); Ch N°: 15 (C3); band N°: 4(Alpha     : [12 16] Hz)
+Feat 85 is ranked 9 score: 0.058173; Meth N°:17 (time_zero_crossing); Ch N°: 15 (C3); band N°: 1(Delta     : [0.1 4] Hz)
+Feat 94 is ranked 10 score: 0.056015; Meth N°:17 (time_zero_crossing); Ch N°: 16 (F3); band N°: 4(Alpha     : [12 16] Hz)
+
+
+********************** Start of OFR Ranking Algorithm *********************************
+You have selected the gram_schmidt method for the ranking
+The feature matrix has the dimension of : 114  588
+You have selected  "All the feature matrix" for the ranaking ...
+
+features_results = 
+
+  struct with fields:
+
+           o_time_zero_crossing: [114×588 double]
+      o_time_zero_crossing_band: [114×3 double]
+                  origin_labels: [1×588 double]
+                         labels: [1×588 double]
+                         epochs: 588
+                      nb_epochs: [0 0 0 588]
+                  sampling_rate: 500
+                    nb_channels: [0 0 0 19]
+                  subject_epoch: [588×2 double]
+                    used_method: {'time_zero_crossing'}
+              method_band_infos: {'N° Method'  'N° Channel'  'N° band'}
+     remove_individual_features: 'N'
+                 channel_method: [114×2 double]
+              o_features_matrix: [114×588 double]
+           o_features_matrix_id: [114×3 double]
+     o_features_matrix_id_infos: {' N° Method  N°Channel   N°Band '}
+     o_features_matrix_original: [114×588 double]
+    o_features_matrix_normalize: [114×588 double]
+                    nb_features: 114
+                       nb_epoch: 588
+            performance_ranking: [1×10 double]
+         o_best_features_matrix: [114×588 double]
+              idx_best_features: [114×1 double]
+              best_organisation: {114×5 cell}
+        best_organisation_infos: {1×5 cell}
+
+Feat 114 is ranked 1 score: 0.14089; Meth N°:17 (time_zero_crossing); Ch N°: 19 (F7); band N°: 8(All frquency domaine...)
+Feat 29 is ranked 2 score: 0.14757; Meth N°:17 (time_zero_crossing); Ch N°: 5 (P3); band N°: 5(Beta      : [16 32] Hz)
+Feat 97 is ranked 3 score: 0.11635; Meth N°:17 (time_zero_crossing); Ch N°: 17 (Fp1); band N°: 1(Delta     : [0.1 4] Hz)
+Feat 111 is ranked 4 score: 0.112; Meth N°:17 (time_zero_crossing); Ch N°: 19 (F7); band N°: 3(Mu        : [8 12] Hz)
+Feat 100 is ranked 5 score: 0.080455; Meth N°:17 (time_zero_crossing); Ch N°: 17 (Fp1); band N°: 4(Alpha     : [12 16] Hz)
+Feat 104 is ranked 6 score: 0.071559; Meth N°:17 (time_zero_crossing); Ch N°: 18 (T7); band N°: 2(Theta     : [4 8] Hz)
+Feat 92 is ranked 7 score: 0.071686; Meth N°:17 (time_zero_crossing); Ch N°: 16 (F3); band N°: 2(Theta     : [4 8] Hz)
+Feat 88 is ranked 8 score: 0.074449; Meth N°:17 (time_zero_crossing); Ch N°: 15 (C3); band N°: 4(Alpha     : [12 16] Hz)
+Feat 85 is ranked 9 score: 0.058173; Meth N°:17 (time_zero_crossing); Ch N°: 15 (C3); band N°: 1(Delta     : [0.1 4] Hz)
+Feat 94 is ranked 10 score: 0.056015; Meth N°:17 (time_zero_crossing); Ch N°: 16 (F3); band N°: 4(Alpha     : [12 16] Hz)
+********************** End of OFR Ranking Function *********************************
+
+ans = 
+
+  Figure (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [360 278 560 420]
+       Units: 'pixels'

@@ -1,4 +1,4 @@
-Sigma BOX Retro-engineering
+# Sigma BOX Retro-engineering
 
 Gui_main_function executes Gui_mainfcn at line 42.
 
@@ -6,8 +6,14 @@ gui_aure_v1_OpeningFcn is the main function to understand.
 
 > handles represent the GUI as far as I understand.
 
+## Opening of the Graphical User Interface (GUI):
 
-1. Compute features 
+`set_initial_init_parameter` (sigma_gui > gui_function > set_initial_init_parameter.m)
+`Sigma_frequency_initialisation` (sigma_main > sigma_frequency_initialisation.m)
+
+
+
+## Compute features 
 handles = compute_features(handles, hObject);
 
 SIGMA > SIGMA_gui > gui_function > compute_features.m
@@ -51,7 +57,7 @@ The next step is to understand feature_assembling
 
 ------------------
 
-2. Compute feature ranking
+## Compute feature ranking
 
 At line 82, we see the `update_feature_ranking`
 
@@ -59,9 +65,18 @@ At line 82, we see the `update_feature_ranking`
 handles = update_feature_ranking(handles, hObject);
 ```
 
+In the gui_aure_v1.m file : 
+
+feature_ranking_gui => is the callback for the button compute feature ranking
+call_feature_ranking_display_results => is the callback when clicking on display feature ranking
+DC_pb_compute_Callback => is the callback when clicking on display feature
+function DC_pb_display_Callback(hObject, eventdata, handles) => display results
+
+function DC_pb_apply_model_Callback(hObject, eventdata, handles) => when the callback on apply model is clicked
+
 ------------------
 
-3. Compute classification
+## Compute classification
 
 SIGMA > SIGMA_gui > gui_function > compute_classification
 
@@ -74,6 +89,15 @@ At line 508, the callback function for classification calls compute_classificati
 handles = compute_classification(handles, hObject);
 guidata(hObject, handles);```
 
+
+## Apply Model 
+
+Callback function is `draft > sigma_apply_model_gui.fig`
+The function called is `AM_apply_model_button_Callback(hObject, eventdata, handles)` at line 217.
+Line 264: 
+`Sigma_apply_model_from_gui(handles)`
+
+Look at the file (sigma_apply_model_from_gui) 265 lines of code (very important)
 
 
 
@@ -117,7 +141,7 @@ features_results.o_time_sample_entropy=o_time_sample_entropy;
 if ((Nsubj==1)&&(Nepochs==1))
 features_results.o_time_sample_entropy_band=temp0;
 end    
-``
+```
 
 NB:
 

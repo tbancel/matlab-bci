@@ -1,0 +1,102 @@
+Prevalence: 4.3%
+ 
+Sensitivity (probability that test is positive on unhealthy subject): 33.3%
+95% confidence interval: 0.0% - 71.1%
+False positive proportion: 66.7%
+ 
+Specificity (probability that test is negative on healthy subject): 67.2%
+95% confidence interval: 59.2% - 75.1%
+False negative proportion: 32.8%
+ 
+Youden's Index (a perfect test would have a Youden index of +1): 0.0050
+ 
+Precision or Predictivity of positive test (probability that a subject is unhealthy when test is positive): 4.3%
+95% confidence interval: 0.0% - 10.2%
+Positive Likelihood Ratio: 1.0
+Poor increase in possibility of disease presence
+ 
+Predictivity of negative test (probability that a subject is healthy when test is negative): 95.7%
+95% confidence interval: 91.7% - 99.8%
+Negative Likelihood Ratio: 1.0
+Poor increase in possibility of disease absence
+ 
+F-measure: 7.7%
+Accuracy or Potency: 65.7%
+Mis-classification Rate: 34.3%
+ 
+Error odds ratio: 0.2444
+Diagnostic odds ratio: 1.0227
+Discriminant Power: 0.0
+     A test with a discriminant value of 1 is not effective in discriminating between affected and unaffected individuals.
+     A test with a discriminant value of 3 is effective in discriminating between affected and unaffected individuals.
+Test bias: 7.6667
+Test overestimates the phenomenon
+Number needed to Diagnose (NDD): 201.0
+Prevalence: 4.3%
+ 
+Sensitivity (probability that test is positive on unhealthy subject): 33.3%
+95% confidence interval: 0.0% - 71.1%
+False positive proportion: 66.7%
+ 
+Specificity (probability that test is negative on healthy subject): 67.2%
+95% confidence interval: 59.2% - 75.1%
+False negative proportion: 32.8%
+ 
+Youden's Index (a perfect test would have a Youden index of +1): 0.0050
+ 
+Precision or Predictivity of positive test (probability that a subject is unhealthy when test is positive): 4.3%
+95% confidence interval: 0.0% - 10.2%
+Positive Likelihood Ratio: 1.0
+Poor increase in possibility of disease presence
+ 
+Predictivity of negative test (probability that a subject is healthy when test is negative): 95.7%
+95% confidence interval: 91.7% - 99.8%
+Negative Likelihood Ratio: 1.0
+Poor increase in possibility of disease absence
+ 
+F-measure: 7.7%
+Accuracy or Potency: 65.7%
+Mis-classification Rate: 34.3%
+ 
+Error odds ratio: 0.2444
+Diagnostic odds ratio: 1.0227
+Discriminant Power: 0.0
+     A test with a discriminant value of 1 is not effective in discriminating between affected and unaffected individuals.
+     A test with a discriminant value of 3 is effective in discriminating between affected and unaffected individuals.
+Test bias: 7.6667
+Test overestimates the phenomenon
+Number needed to Diagnose (NDD): 201.0
+Prevalence: 4.3%
+ 
+Sensitivity (probability that test is positive on unhealthy subject): 33.3%
+95% confidence interval: 0.0% - 71.1%
+False positive proportion: 66.7%
+ 
+Specificity (probability that test is negative on healthy subject): 67.2%
+95% confidence interval: 59.2% - 75.1%
+False negative proportion: 32.8%
+ 
+Youden's Index (a perfect test would have a Youden index of +1): 0.0050
+ 
+Precision or Predictivity of positive test (probability that a subject is unhealthy when test is positive): 4.3%
+95% confidence interval: 0.0% - 10.2%
+Positive Likelihood Ratio: 1.0
+Poor increase in possibility of disease presence
+ 
+Predictivity of negative test (probability that a subject is healthy when test is negative): 95.7%
+95% confidence interval: 91.7% - 99.8%
+Negative Likelihood Ratio: 1.0
+Poor increase in possibility of disease absence
+ 
+F-measure: 7.7%
+Accuracy or Potency: 65.7%
+Mis-classification Rate: 34.3%
+ 
+Error odds ratio: 0.2444
+Diagnostic odds ratio: 1.0227
+Discriminant Power: 0.0
+     A test with a discriminant value of 1 is not effective in discriminating between affected and unaffected individuals.
+     A test with a discriminant value of 3 is effective in discriminating between affected and unaffected individuals.
+Test bias: 7.6667
+Test overestimates the phenomenon
+Number needed to Diagnose (NDD): 201.0
