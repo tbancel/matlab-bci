@@ -8,7 +8,7 @@ close all
 tic
 %% data loading
 % data loading
-load 'C:\Users\MJ\Desktop\subject_1.mat';
+load 'D:\Download\v12dec_datasets_training_testing_model\subject_1.mat';
 eeg1 = s_EEG;
 % load 'D:\MJ\ѧϰ\curriculum\UE3.7-8 BCI\BCI_project\SIGMA_svm\SIGMA_svm\SIGMA\SIGMA_data\subject_for_test\subject_2.mat';
 % eeg2 = s_EEG;
@@ -36,9 +36,14 @@ eeg_data_conv = cat(3,eeg_like,eeg_dislike);
 %% freqband analysis
 % fast Fourier transform
 epoch_nfft = size(eeg_data_conv,2);
-F = ((0:1/epoch_nfft:1/2-1/epoch_nfft)*fs);%1/epoch_nfft is the frequency resolution
+% F = ((0:1/epoch_nfft:1/2-1/epoch_nfft)*fs);%1/epoch_nfft is the frequency resolution
+F = (0:epoch_nfft/2-1)/epoch_nfft;
+F = F * fs;
 Freq = [1,4,8,12,25];
 n_Freq = (Freq/fs+1/fs)*epoch_nfft;
+
+
+
 for i = 1:size(eeg_data_conv,3)
     for j = 1:19
 %         wo = 50/(500/2);  
@@ -56,10 +61,14 @@ for i = 1:size(eeg_data_conv,3)
         %Total Magnitude
         Mag_total(j,i)=sum(freq_fft(j,:,i))/epoch_nfft/2;
         % Reletive power 
-        d(j,i) = sum(freq_fft(j,n_Freq(1):n_Freq(2),i))/length([n_Freq(1):n_Freq(2)])/epoch_nfft/Mag_total(j,i);
-        t(j,i) = sum(freq_fft(j,n_Freq(2):n_Freq(3),i))/length([n_Freq(2):n_Freq(3)])/epoch_nfft/Mag_total(j,i);
-        a(j,i) = sum(freq_fft(j,n_Freq(3):n_Freq(4),i))/length([n_Freq(3):n_Freq(4)])/epoch_nfft/Mag_total(j,i);
-        b(j,i) = sum(freq_fft(j,n_Freq(4):n_Freq(5),i))/length([n_Freq(4):n_Freq(5)])/epoch_nfft/Mag_total(j,i);
+        m(j,i) = sum(freq_fft(j,1:n_Freq(1),i))/epoch_nfft/Mag_total(j,i);
+        d(j,i) = sum(freq_fft(j,n_Freq(1):n_Freq(2),i))/epoch_nfft/Mag_total(j,i);
+        t(j,i) = sum(freq_fft(j,n_Freq(2):n_Freq(3),i))/epoch_nfft/Mag_total(j,i);
+        a(j,i) = sum(freq_fft(j,n_Freq(3):n_Freq(4),i))/epoch_nfft/Mag_total(j,i);
+        b(j,i) = sum(freq_fft(j,n_Freq(4):n_Freq(5),i))/epoch_nfft/Mag_total(j,i);
+        e(j,i) = sum(freq_fft(j,n_Freq(5):500,i))/epoch_nfft/Mag_total(j,i);
+        q(j,i) = sum(freq_fft(j,1:500,i))/epoch_nfft/Mag_total(j,i);
+
         
     end
 end
@@ -98,7 +107,7 @@ std_dislike = cat(2,std_d_dislike,std_t_dislike,std_a_dislike,std_b_dislike);
 %% boxplot for each channel 
 figure
 for j=1:19
-%     figure
+   %     figure
    subplot(4,5,j)
    % Boxplot for the Freqency band (d=1-4,t=4-8,a=8-12,b=12-25)
    Freqname_like = {'d+','t+','a+','b+'};
@@ -114,6 +123,15 @@ for j=1:19
    title(['channel-',num2str(j)])
 end
 
-
+%% t-Test
+Freq_name = {'Delta','Theta','Alpha','Beta'};
+t_result = zeros(19,4);
+for j=1:19
+    for k = 1:4
+%         disp(['channel',num2str(j)]);
+%         disp([Freq_name(k)]);
+        t_result(j,k) = ttest(freqband_fft_dislike(j,:,k),freqband_fft_like(j,:,k));
+    end
+end
 %%
 toc
